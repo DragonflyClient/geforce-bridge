@@ -1,3 +1,0 @@
-D:/Workspace/C++/MCGeForce/cmake-build-debug/CMakeFiles/MCGeForce.dir
-D:/Workspace/C++/MCGeForce/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Workspace/C++/MCGeForce/cmake-build-debug/CMakeFiles/rebuild_cache.dir
