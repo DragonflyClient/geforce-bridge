@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.8)
 project ("MCGeForce")
 
 # Add source to this project's executable.
-add_library (MCGeForce SHARED "MCGeForce.cpp" "MCGeForce.h" "JNIHelper.cpp")
+add_library (MCGeForce SHARED "MCGeForce.cpp" "MCGeForce.h" "JNIHelper.cpp" )
 # add_executable (MCGeForce "MCGeForce.cpp" "MCGeForce.h" )
 
 # TODO: Add tests and install targets if needed.

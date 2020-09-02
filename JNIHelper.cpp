@@ -1,8 +1,59 @@
 #include "MCGeForce.h"
+#include <iostream>
+#include <string>
+#include <ctime>
 
 static JNIEnv* environment = nullptr;
 static jclass clazz = nullptr;
 static JavaVM* jvm = nullptr;
+
+void error(char text[]) {
+
+	time_t rawtime;
+	struct tm* timeinfo;
+	char buffer[80];
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+
+	strftime(buffer, sizeof(buffer), "%H:%M:%S", timeinfo);
+	std::string str(buffer);
+
+	std::cout << "[" << str << "] [GeForce Bridge/ERROR]: " << text << "\n";
+
+}
+
+void info(char text[]) {
+
+	time_t rawtime;
+	struct tm* timeinfo;
+	char buffer[80];
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+
+	strftime(buffer, sizeof(buffer), "%H:%M:%S", timeinfo);
+	std::string str(buffer);
+
+	std::cout << "[" << str << "] [GeForce Bridge/INFO]: " << text << "\n";
+
+}
+
+void warn(char text[]) {
+
+	time_t rawtime;
+	struct tm* timeinfo;
+	char buffer[80];
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+
+	strftime(buffer, sizeof(buffer), "%H:%M:%S", timeinfo);
+	std::string str(buffer);
+
+	std::cout << "[" << str << "] [GeForce Bridge/WARN]: " << text << "\n";
+
+}
 
 void JNIHelper::init(JNIEnv* env, jobject obj)
 {
@@ -11,7 +62,7 @@ void JNIHelper::init(JNIEnv* env, jobject obj)
 	// Get a JVM Instance from the current JNI Environment
 	env->GetJavaVM(&jvm);
 	if (NULL == jvm) {
-		printf("[GeForce Experience Native] (JNIHelper::init) ERROR: jvm is null");
+		error("(JNIHelper::init) jvm is null");
 		fflush(stdout);
 
 		return;
@@ -19,7 +70,7 @@ void JNIHelper::init(JNIEnv* env, jobject obj)
 
 	clazz = environment->GetObjectClass(obj);
 	if (NULL == clazz) {
-		printf("[GeForce Experience Native] (JNIHelper::init) ERROR: clazz is null");
+		error("clazz is null");
 		fflush(stdout);
 
 		return;
@@ -29,7 +80,7 @@ void JNIHelper::init(JNIEnv* env, jobject obj)
 jmethodID JNIHelper::getMethod(const char* methodName, const char* signature)
 {
 	if (environment == NULL) {
-		printf("[GeForce Experience Native] (numberOfHighlightsCallback) environment is null\n");
+		error("(JNIHelper::init) environment is null");
 		fflush(stdout);
 
 		return nullptr;
@@ -41,7 +92,7 @@ jmethodID JNIHelper::getMethod(const char* methodName, const char* signature)
 jmethodID JNIHelper::getStaticMethod(const char* methodName, const char* signature)
 {
 	if (environment == NULL) {
-		printf("[GeForce Experience Native] (numberOfHighlightsCallback) environment is null\n");
+		warn("(numberOfHighlightsCallback) environment is null");
 		fflush(stdout);
 
 		return nullptr;
@@ -53,14 +104,14 @@ jmethodID JNIHelper::getStaticMethod(const char* methodName, const char* signatu
 void JNIHelper::callVoidMethod(jmethodID method, ...)
 {
 	if (environment == NULL) {
-		printf("[GeForce Experience Native] (numberOfHighlightsCallback) environment is null\n");
+		warn("(numberOfHighlightsCallback) environment is null");
 		fflush(stdout);
 
 		return;
 	}
 
 	if (method == NULL) {
-		printf("[GeForce Experience Native] (JNIHelper::callVoidMethod) callback is null");
+		warn("(JNIHelper::callVoidMethod) callback is null");
 		fflush(stdout);
 		return;
 	}
@@ -79,14 +130,14 @@ void JNIHelper::callVoidMethod(jmethodID method, ...)
 void JNIHelper::callStaticVoidMethod(jmethodID method, ...)
 {
 	if (environment == NULL) {
-		printf("[GeForce Experience Native] (JNIHelper::callStaticVoidMethod) environment is null\n");
+		warn("(JNIHelper::callStaticVoidMethod) environment is null");
 		fflush(stdout);
 
 		return;
 	}
 
 	if (method == NULL) {
-		printf("[GeForce Experience Native] (JNIHelper::callStaticVoidMethod) method is null");
+		warn("(JNIHelper::callStaticVoidMethod) method is null");
 		fflush(stdout);
 
 		return;
