@@ -75,6 +75,13 @@ long MCGeForce::init(void)
 		highlights[3].nameTable = &highlight4Translation[0];
 		highlights[3].nameTableSize = 1;
 		
+		NVGSDK_LocalizedPair highlight5Translation[1] = { { "en-US", "Lose" } };
+		highlights[3].id = "mcdrgn_lose";
+		highlights[3].userInterest = true;
+		highlights[3].highlightTags = NVGSDK_HIGHLIGHT_TYPE_INCIDENT;
+		highlights[3].significance = NVGSDK_HIGHLIGHT_SIGNIFICANCE_VERY_BAD;
+		highlights[3].nameTable = &highlight5Translation[0];
+		highlights[3].nameTableSize = 1;
 
 		NVGSDK_HighlightConfigParams params = { 0 };
 		params.highlightDefinitionTable = &highlights[0];
