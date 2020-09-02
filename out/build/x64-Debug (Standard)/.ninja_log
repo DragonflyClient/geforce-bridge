@@ -1,0 +1,5 @@
+# ninja log v5
+38	7106	620688600	CMakeFiles/MCGeForce.dir/JNIHelper.cpp.obj	55aa2d21b0c8b7d8
+4	7239	620688601	CMakeFiles/MCGeForce.dir/MCGeForce.cpp.obj	26b265d6e2b6736
+7239	10605	620688604	MCGeForce.dll	51964e3933c51d4f
+7239	10605	620688604	MCGeForce.lib	51964e3933c51d4f

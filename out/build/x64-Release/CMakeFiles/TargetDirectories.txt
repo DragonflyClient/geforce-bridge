@@ -1,0 +1,3 @@
+D:/Development/C++/MCGeForce/out/build/x64-Release/CMakeFiles/MCGeForce.dir
+D:/Development/C++/MCGeForce/out/build/x64-Release/CMakeFiles/edit_cache.dir
+D:/Development/C++/MCGeForce/out/build/x64-Release/CMakeFiles/rebuild_cache.dir
