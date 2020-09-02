@@ -51,38 +51,30 @@ long MCGeForce::init(void)
 		highlights[0].nameTable = &highlight1Translation[0];
 		highlights[0].nameTableSize = 1;
 
-		NVGSDK_LocalizedPair highlight2Translation[1] = { { "en-US", "Kill Streak" } };
-		highlights[1].id = "mcdrgn_killstreak";
+		NVGSDK_LocalizedPair highlight2Translation[1] = { { "en-US", "Win" } };
+		highlights[1].id = "mcdrgn_win";
 		highlights[1].userInterest = true;
 		highlights[1].highlightTags = NVGSDK_HIGHLIGHT_TYPE_MILESTONE;
-		highlights[1].significance = NVGSDK_HIGHLIGHT_SIGNIFICANCE_EXTREMELY_GOOD;
+		highlights[1].significance = NVGSDK_HIGHLIGHT_SIGNIFICANCE_VERY_GOOD;
 		highlights[1].nameTable = &highlight2Translation[0];
 		highlights[1].nameTableSize = 1;
 
-		NVGSDK_LocalizedPair highlight3Translation[1] = { { "en-US", "Win" } };
-		highlights[2].id = "mcdrgn_win";
+		NVGSDK_LocalizedPair highlight3Translation[1] = { { "en-US", "Death" } };
+		highlights[2].id = "mcdrgn_death";
 		highlights[2].userInterest = true;
-		highlights[2].highlightTags = NVGSDK_HIGHLIGHT_TYPE_ACHIEVEMENT;
-		highlights[2].significance = NVGSDK_HIGHLIGHT_SIGNIFICANCE_VERY_GOOD;
+		highlights[2].highlightTags = NVGSDK_HIGHLIGHT_TYPE_INCIDENT;
+		highlights[2].significance = NVGSDK_HIGHLIGHT_SIGNIFICANCE_BAD;
 		highlights[2].nameTable = &highlight3Translation[0];
 		highlights[2].nameTableSize = 1;
-
-		NVGSDK_LocalizedPair highlight4Translation[1] = { { "en-US", "Death" } };
-		highlights[3].id = "mcdrgn_death";
-		highlights[3].userInterest = true;
-		highlights[3].highlightTags = NVGSDK_HIGHLIGHT_TYPE_INCIDENT;
-		highlights[3].significance = NVGSDK_HIGHLIGHT_SIGNIFICANCE_BAD;
-		highlights[3].nameTable = &highlight4Translation[0];
-		highlights[3].nameTableSize = 1;
 		
-		NVGSDK_LocalizedPair highlight5Translation[1] = { { "en-US", "Lose" } };
+		NVGSDK_LocalizedPair highlight4Translation[1] = { { "en-US", "Lose" } };
 		highlights[3].id = "mcdrgn_lose";
 		highlights[3].userInterest = true;
 		highlights[3].highlightTags = NVGSDK_HIGHLIGHT_TYPE_INCIDENT;
 		highlights[3].significance = NVGSDK_HIGHLIGHT_SIGNIFICANCE_VERY_BAD;
-		highlights[3].nameTable = &highlight5Translation[0];
+		highlights[3].nameTable = &highlight4Translation[0];
 		highlights[3].nameTableSize = 1;
-
+		
 		NVGSDK_HighlightConfigParams params = { 0 };
 		params.highlightDefinitionTable = &highlights[0];
 		params.highlightTableSize = 4;
