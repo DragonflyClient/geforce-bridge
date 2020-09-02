@@ -42,7 +42,7 @@ long MCGeForce::init(void)
 		NVGSDK_RequestPermissionsAsync(handle, &reqParams, reinterpret_cast<NVGSDK_EmptyCallback>(asyncCallback), NULL);
 		addGroup(handle, "mcdragonfly", "Dragonfly");
 
-		NVGSDK_Highlight highlights[4] = { 0 };
+		NVGSDK_Highlight highlights[3] = { 0 };
 		NVGSDK_LocalizedPair highlight1Translation[1] = { { "en-US", "Kill" } };
 		highlights[0].id = "mcdrgn_kill";
 		highlights[0].userInterest = true;
@@ -67,17 +67,9 @@ long MCGeForce::init(void)
 		highlights[2].nameTable = &highlight3Translation[0];
 		highlights[2].nameTableSize = 1;
 		
-		NVGSDK_LocalizedPair highlight4Translation[1] = { { "en-US", "Lose" } };
-		highlights[3].id = "mcdrgn_lose";
-		highlights[3].userInterest = true;
-		highlights[3].highlightTags = NVGSDK_HIGHLIGHT_TYPE_INCIDENT;
-		highlights[3].significance = NVGSDK_HIGHLIGHT_SIGNIFICANCE_VERY_BAD;
-		highlights[3].nameTable = &highlight4Translation[0];
-		highlights[3].nameTableSize = 1;
-		
 		NVGSDK_HighlightConfigParams params = { 0 };
 		params.highlightDefinitionTable = &highlights[0];
-		params.highlightTableSize = 4;
+		params.highlightTableSize = 3;
 		params.defaultLocale = "en-US";
 		NVGSDK_Highlights_ConfigureAsync(handle, &params, reinterpret_cast<NVGSDK_EmptyCallback>(asyncCallback), NULL);
 	}
